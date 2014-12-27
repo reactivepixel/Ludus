@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: "home#index"
+  devise_for :users
+  root to: "msgs#index"
   resources :msgs
 
   # The priority is based upon order of creation: first created -> highest priority.
