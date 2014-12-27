@@ -1,6 +1,8 @@
 class MsgsController < ApplicationController
   before_action :set_msg, only: [:show, :edit, :update, :destroy]
 
+  # requires login to do everything below except...
+  before_filter :authenticate_user!, :except => [:index, :show]
   respond_to :html
 
   def index
@@ -13,7 +15,9 @@ class MsgsController < ApplicationController
   end
 
   def new
-    @msg = Msg.new
+    # @msg = Msg.new
+    @msg = current_user.msg.build
+
     respond_with(@msg)
   end
 
@@ -21,7 +25,7 @@ class MsgsController < ApplicationController
   end
 
   def create
-    @msg = Msg.new(msg_params)
+    @msg = current_user.msg.build(msg_params)
     @msg.save
     respond_with(@msg)
   end

@@ -13,13 +13,13 @@
       <tr>
         <td><%= msg.content %></td>
         <td><%= link_to 'Show', msg %></td>
+        <% if msg.user == current_user %>
         <td><%= link_to 'Edit', edit_msg_path(msg) %></td>
         <td><%= link_to 'Destroy', msg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Msg', new_msg_path %>
