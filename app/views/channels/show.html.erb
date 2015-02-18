@@ -1,9 +1,17 @@
+<h2>
+	<%= @channel.title %>
+</h2>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @channel.title %>
-</p>
-
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+<div class="msgs">
+<% @msgs.each do |msg| %>
+	<div>
+        <div class="meta">
+        	<span class="user_name"><%= msg.user.email %></span>
+        	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")
+ %></span>
+        </div>
+        <p><%= msg.content %></p>
+	</div>
+<% end %>
+</div>
+<%= link_to 'Add Msg', new_msg_path %>

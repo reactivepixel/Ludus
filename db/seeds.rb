@@ -18,6 +18,7 @@
 		msg = Msg.new(
 				:content			=> Faker::Lorem.sentence,
 				:user_id			=> user.id
+				:channel_id			=> 1
 			)
 		msg.save!
 	end

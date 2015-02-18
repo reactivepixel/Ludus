@@ -9,6 +9,7 @@ class ChannelsController < ApplicationController
   end
 
   def show
+    @msgs = Msg.where(:channel_id => @channel.id)
     respond_with(@channel)
   end
 

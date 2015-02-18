@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "msgs#index"
+  root to: "channels#index"
   
   resources :channels
 

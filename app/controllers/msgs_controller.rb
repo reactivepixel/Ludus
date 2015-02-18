@@ -17,6 +17,7 @@ class MsgsController < ApplicationController
   def new
     # @msg = Msg.new
     @msg = current_user.msg.build
+    @channels = Channel.all
 
     respond_with(@msg)
   end
@@ -26,6 +27,10 @@ class MsgsController < ApplicationController
 
   def create
     @msg = current_user.msg.build(msg_params)
+#    @channel = @msg.build_channel(params[:channel])
+
+puts "============================="
+puts params[:channel]
     @msg.save
     respond_with(@msg)
   end
@@ -46,6 +51,6 @@ class MsgsController < ApplicationController
     end
 
     def msg_params
-      params.require(:msg).permit(:content)
+      params.require(:msg).permit(:content, :channel_id)
     end
 end

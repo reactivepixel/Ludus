@@ -1,3 +1,22 @@
 // Place all the styles related to the Msgs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Material Design Colors - http://www.materialui.co/colors
+$primary_sub2: #9E9E9E;  	// blue grey 300
+$primary_sub1: #455A64; 	// blue grey 700
+$primary: #263238;			// blue grey 900
+
+.msgs .meta .user_name{
+	font-weight: bold;
+	color: $primary_sub1;
+}
+.msgs .meta .timestamp{
+	font-size: .8em;
+	color: $primary_sub2;
+}
+.msgs{
+	overflow: scroll;
+	max-height: 25em;
+	color: $primary;
+}

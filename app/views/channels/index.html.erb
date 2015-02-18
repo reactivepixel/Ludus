@@ -1,25 +1,16 @@
-<h1>Listing channels</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Available channels</h1>
+<aside class="col-xs-12 col-md-6 col-lg-3">
+  <ol class="list-group">
     <% @channels.each do |channel| %>
-      <tr>
-        <td><%= channel.title %></td>
-        <td><%= link_to 'Show', channel %></td>
-        <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
-        <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li class="list-group-item">
+        
+        <%= link_to channel.title, channel %>
+        <% #link_to 'Edit', edit_channel_path(channel) %>
+        <% #link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+  </ol>
+  <%= link_to 'New Channel', new_channel_path, :class => "btn btn-primary" %>
+</aside>
 
-<%= link_to 'New Channel', new_channel_path %>
