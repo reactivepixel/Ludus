@@ -1,28 +1,32 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+== Ludus
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Dependencies
+
+* Ruby 2.1.5
+* Rails 4.1.6
+* MySQL
+
+## Installation
+
+```     
+bundle install
+rake db:setup
+rake db:migrate
+```
+
+## Local Testing
+
+Start Rails Server
+
+```
+rails s
+```
+
+Start MySQL Server
+
+```
+mysql.server start
+```
+
+[View your app!](http://127.0.0.1:3000)
