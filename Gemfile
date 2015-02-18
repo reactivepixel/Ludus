@@ -42,3 +42,6 @@ gem 'devise', '~> 3.4.1'
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.1.0'
+
+# fake data generator
+gem 'faker', '~> 1.4.3' # Docs - https://github.com/stympy/faker

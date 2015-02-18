@@ -11,11 +11,10 @@
   <tbody>
     <% @msgs.each do |msg| %>
       <tr>
-        <td><%= msg.content %></td>
-        <td><%= link_to 'Show', msg %></td>
+        <td><%= msg.user.email + " => " + msg.content %></td>
         <% if msg.user == current_user %>
-        <td><%= link_to 'Edit', edit_msg_path(msg) %></td>
-        <td><%= link_to 'Destroy', msg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', msg, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
