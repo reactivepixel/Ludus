@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150218022008) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "channel_id"
+    t.integer  "channel_id", null: false
   end
 
   add_index "msgs", ["channel_id"], name: "index_msgs_on_channel_id", using: :btree

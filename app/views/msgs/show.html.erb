@@ -1,10 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Channel:</strong>
+  <%= @msg.channel.title %>
+</p>
+<p>
   <strong>Content:</strong>
   <%= @msg.content %>
   <%= @msg.channel.title %>
 </p>
+<p>
+  <strong>User:</strong>
+  <%= @msg.user.email %>
+</p>
+<p>
+  <strong>Last Updated:</strong>
+  <%= @msg.updated_at %>
+</p>
 
 <%= link_to 'Edit', edit_msg_path(@msg) %> |
-<%= link_to 'Back', msgs_path %>
+<%= link_to 'Back', channels_path %>

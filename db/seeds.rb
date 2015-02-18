@@ -6,6 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+channel = Channel.new(
+		:title					=> 'General',
+		:id 					=> 1
+	)
+channel.save!
+
+
+	admin = User.new(
+	      :email                 => "admin@apextion.com",
+	      :password              => "administration",
+	      :password_confirmation => "administration"
+		)
+	admin.save!
+
+users = Array.new
 10.times do
 	pwd = Faker::Internet.password(10,20)
 	user = User.new(
@@ -14,12 +29,14 @@
 	      :password_confirmation => pwd
 		)
 	user.save!
-	5.times do 
-		msg = Msg.new(
-				:content			=> Faker::Lorem.sentence,
-				:user_id			=> user.id
-				:channel_id			=> 1
-			)
-		msg.save!
-	end
+	users.push(user)
+end
+
+25.times do 
+	msg = Msg.new(
+			:content			=> Faker::Lorem.sentence,
+			:user_id			=> users.sample.id,
+			:channel_id			=> 1
+		)
+	msg.save!
 end

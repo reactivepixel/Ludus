@@ -15,7 +15,6 @@ class MsgsController < ApplicationController
   end
 
   def new
-    # @msg = Msg.new
     @msg = current_user.msg.build
     @channels = Channel.all
 
@@ -23,14 +22,11 @@ class MsgsController < ApplicationController
   end
 
   def edit
+    @channels = Channel.all
   end
 
   def create
     @msg = current_user.msg.build(msg_params)
-#    @channel = @msg.build_channel(params[:channel])
-
-puts "============================="
-puts params[:channel]
     @msg.save
     respond_with(@msg)
   end

@@ -1,9 +1,17 @@
-<h2>
+<h1>
 	<%= @channel.title %>
-</h2>
+</h1>
 <p id="notice"><%= notice %></p>
 <div class="msgs">
 <% @msgs.each do |msg| %>
+	<% if msg.user == current_user %>
+        <aside>
+	        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
+	        </span>
+	        <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+	        </span>
+		</aside>
+    <% end %>
 	<div>
         <div class="meta">
         	<span class="user_name"><%= msg.user.email %></span>
@@ -11,7 +19,11 @@
  %></span>
         </div>
         <p><%= msg.content %></p>
+
+		
+
+
 	</div>
 <% end %>
 </div>
-<%= link_to 'Add Msg', new_msg_path %>
+<%= link_to 'Add Msg', new_msg_path, :class => 'btn btn-primary' %>
