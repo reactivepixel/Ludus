@@ -19,10 +19,6 @@
  %></span>
         </div>
         <p><%= msg.content %></p>
-
-		
-
-
 	</div>
 <% end %>
 </div>
@@ -30,6 +26,7 @@
 
 <a class="btn btn-primary slide_down" href="">Add Msg</a>
 
+<!-- form renders inly if users are logged in -->
 <% if current_user != nil%>
 	<div class="form_slide">
 		<%= form_for(@msg) do |f| %>
@@ -49,9 +46,11 @@
 	    <%= f.label :content %><br>
 	    <%= f.text_area :content %>
 	  </div>
-<%=  @channel.id %>
 	<div class="field_hide">
-		<!-- second parameter in the hidden_field needs to be passed through :value -->
+		<!-- second parameter in the hidden_field needs to be passed through :value; this is not in the Rails official documentation
+		http://stackoverflow.com/questions/12732046/undefined-method-merge-for-string-form-for-helper
+		http://apidock.com/rails/ActionView/Helpers/FormHelper/hidden_field
+		 -->
 	 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
 	</div>
 
