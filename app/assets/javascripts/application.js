@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('.form_slide').hide();
+	$('.slide_down').click(function(e){
+		e.preventDefault();
+		$('.form_slide').slideToggle('slow');
+	})
+});
