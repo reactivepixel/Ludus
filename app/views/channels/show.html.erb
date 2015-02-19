@@ -30,7 +30,7 @@
 
 <a class="btn btn-primary slide_down" href="">Add Msg</a>
 
-<% if current_user != nil %>
+<% if current_user != nil%>
 	<div class="form_slide">
 		<%= form_for(@msg) do |f| %>
 	  <% if @msg.errors.any? %>
@@ -49,9 +49,10 @@
 	    <%= f.label :content %><br>
 	    <%= f.text_area :content %>
 	  </div>
-
+<%=  @channel.id %>
 	<div class="field_hide">
-	 	<%= f.collection_select :channel_id, @channels,:id,:title, include_blank: false, :selected => params[:id] %>
+		<!-- second parameter in the hidden_field needs to be passed through :value -->
+	 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
 	</div>
 
 	  
