@@ -1,6 +1,7 @@
 
-<h1>Available Channels</h1>
-<aside class=".col-lg-6">
+
+<aside class="col-lg-8">
+  <h1>Available Channels</h1>
   <ol class="list-group">
     <% @channels.each do |channel| %>
       <li class="list-group-item">
@@ -15,10 +16,8 @@
   <%= link_to 'New Channel', new_channel_path, :class => "btn btn-primary" %>
 </aside>
 
-
-
-<h1>Recent Posts</h1>
-<aside class=".col-lg-6">
+<aside class="col-lg-4">
+  <h1>Recent Posts</h1>
   <ol class="list-group">
     <% @msgs.each do |msg| %>
     <li class="list-group-item">
@@ -39,12 +38,3 @@
     <% end %>
   </ol>
 </aside>
-
-
-
-
-
-
-
-
-

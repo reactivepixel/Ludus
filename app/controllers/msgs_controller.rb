@@ -8,7 +8,8 @@ class MsgsController < ApplicationController
   def index
     @msgs = Msg.all
     respond_with(@msgs)
-
+    @msgs = Msg.order('created_at desc').limit(5)
+    respond_with(@msgs)
   end
 
   def show
@@ -40,11 +41,6 @@ class MsgsController < ApplicationController
   def destroy
     @msg.destroy
     respond_with(@msg)
-  end
-
-
-  def recent
-    @msg = Msg.order('position DESC')
   end
 
 

@@ -6,6 +6,7 @@ class ChannelsController < ApplicationController
   def index
     @channels = Channel.all
     @msgs = Msg.all
+    @msgs = Msg.order('created_at DESC').limit(5)
     respond_with(@channels)
   end
 
