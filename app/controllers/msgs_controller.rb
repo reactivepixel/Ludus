@@ -39,7 +39,6 @@ class MsgsController < ApplicationController
   def destroy
     @msg.destroy
     respond_with(@msg)
-
   end
 
 

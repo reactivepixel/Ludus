@@ -37,7 +37,6 @@ class ChannelsController < ApplicationController
   def destroy
     @channel.destroy
     respond_with(@channel)
-
   end
 
   private
