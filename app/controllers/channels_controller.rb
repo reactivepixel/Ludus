@@ -6,7 +6,7 @@ class ChannelsController < ApplicationController
   def index
     @channels = Channel.all
     @msgs = Msg.all
-    @msgs = Msg.order('created_at DESC').limit(5)
+    @msgs = Msg.order(created_at: :desc).limit(5)
     respond_with(@channels)
   end
 
@@ -37,6 +37,7 @@ class ChannelsController < ApplicationController
   def destroy
     @channel.destroy
     respond_with(@channel)
+
   end
 
   private

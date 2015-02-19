@@ -17,11 +17,13 @@
 </aside>
 
 <aside class="col-lg-4">
-  <h1>Recent Posts</h1>
+  <h1>Recent Messages</h1>
   <ol class="list-group">
     <% @msgs.each do |msg| %>
     <li class="list-group-item">
+      <div class="msgs">
           <div class="meta">
+            <span><%= msg.channel.title %></h5></span><br/>
             <span class="user_name"><%= msg.user.email %></span>
             <span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")%></span>
           </div>
@@ -34,6 +36,7 @@
               </span>
             </aside>
           <% end %>
+        </div>
       </li>
     <% end %>
   </ol>
