@@ -10,7 +10,7 @@
 
 ## Installation
 
-```     
+```
 bundle install
 rake db:setup
 rake db:migrate
@@ -31,3 +31,9 @@ mysql.server start
 ```
 
 [View your app!](http://127.0.0.1:3000)
+
+
+##Carmine Trovato
+github.com/ctrovato
+
+

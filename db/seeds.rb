@@ -32,7 +32,7 @@ users = Array.new
 	users.push(user)
 end
 
-25.times do 
+25.times do
 	msg = Msg.new(
 			:content			=> Faker::Lorem.sentence,
 			:user_id			=> users.sample.id,
