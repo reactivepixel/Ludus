@@ -5,6 +5,7 @@ class ChannelsController < ApplicationController
 
   def index
     @channels = Channel.all
+    @msgs = Msg.all
     respond_with(@channels)
   end
 

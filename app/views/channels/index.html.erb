@@ -1,5 +1,6 @@
+
 <h1>Available Channels</h1>
-<aside class="col-xs-12 col-md-6 col-lg-3">
+<aside class=".col-lg-6">
   <ol class="list-group">
     <% @channels.each do |channel| %>
       <li class="list-group-item">
@@ -16,19 +17,34 @@
 
 
 
-
-<h1>Recent Posts Feed</h1>
-<aside class="col-xs-12 col-md-6 col-lg-3">
+<h1>Recent Posts</h1>
+<aside class=".col-lg-6">
   <ol class="list-group">
-    <% @channels.each do |channel| %>
-      <li class="list-group-item">
-
-        <%= link_to channel.title, channel %>
-        <% #link_to 'Edit', edit_channel_path(channel) %>
-        <% #link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% @msgs.each do |msg| %>
+    <li class="list-group-item">
+          <div class="meta">
+            <span class="user_name"><%= msg.user.email %></span>
+            <span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")%></span>
+          </div>
+          <p><%= link_to msg.content, msg %></p>
+          <% if msg.user == current_user %>
+            <aside>
+              <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
+              </span>
+              <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+              </span>
+            </aside>
+          <% end %>
       </li>
     <% end %>
-
   </ol>
-  <%= link_to 'New Channel', new_channel_path, :class => "btn btn-primary" %>
 </aside>
+
+
+
+
+
+
+
+
+
