@@ -17,3 +17,8 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+h1, h2, h3{
+	font-family 		: 'Merriweather', serif;
+	font-weight 		: 300;
+}

@@ -1,25 +1,89 @@
-// Place all the styles related to the Msgs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// ---------- Contents --------------------
+// ---------- 1: Typography
+// ---------- 2: Colors & other variables
+// ---------- 3: Organisms
+// ---------- 4: General
+// ---------- 5: Index
+// ----------------------------------------
+
+// ---------- 1: Typography -------------------
+$merriweather 			: 'Merriweather', serif;
+$opensans 				: 'Open Sans', sans-serif;
+$roboto 				: 'Roboto', sans-serif;
+
+// ---------- 2: Colors & other variables -----
+$charcoal 				: rgba(38,50,56 ,1);
+$grey 					: rgba(55,71,79 ,1);
+$grey-light 			: rgba(84,110,122 ,1);
+$white 					: rgba(236,239,241 ,1);
+$white-hover 			: rgba(207,216,220 ,1);
+
+$red 					: rgba(84,110,122 ,1);
+$blue 					: rgba(33,150,243 ,1);
+$green 					: rgba(76,175,80 ,1);
+$orange 				: rrgba(255,152,0 ,1);
+
+$box-shadow 			: 0px 2px 3px rgba(0,0,0,0.3);
+$box-shadow-hover 		: 0px 1px 2px rgba(0,0,0,0.3);
+$border-radius 			: 2px;
+
+// ---------- 3: Organisms ---------------------
+h1, h2, h3{
+	font-family 		: 'Merriweather', serif;
+	font-weight 		: 300;
+}
+h4, h5, h6, li, a {
+	font-family 		: $opensans;
+}
+body{
+	font-family 		: $roboto;
+}
+
+.button{
+	background-color 	: $blue;
+	padding 			: 10px;
+	color 				: $white;
+	border-radius 		: $border-radius;
+	box-shadow 			: $box-shadow;
+	&:hover{
+		color 			: $white-hover;
+		text-decoration : none;
+		box-shadow 		: $box-shadow-hover;
+	}
+}
+
+
+// ---------- 4: General --------------------------
+#logo a{
+	font-family: $merriweather;
+	font-size: 16pt;
+}
+
+// ---------- 5: Index --------------------------
+aside.channels{
+	background-color: $red;
+}
+.channel-list{
+	list-style-type: none;
+	padding: 0;
+	li{
+		a{
+			background-color: $charcoal;
+			color: $white;
+			padding: 10px;
+			border-radius: $border-radius;
+			display: block;
+
+		}
+	}
+}
+
+
+
+
+
+
+
+
 
 // Material Design Colors - http://www.materialui.co/colors
-$primary_sub2: #9E9E9E;  	// blue grey 300
-$primary_sub1: #455A64; 	// blue grey 700
-$primary: #263238;			// blue grey 900
-
-.msgs .meta .user_name{
-	font-weight: bold;
-	color: $primary_sub1;
-}
-.msgs .meta .timestamp{
-	font-size: .8em;
-	color: $primary_sub2;
-}
-.msgs{
-	overflow: scroll;
-	max-height: 25em;
-	color: $primary;
-}
-.msgs aside{
-	float: right;
-}

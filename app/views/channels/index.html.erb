@@ -1,8 +1,9 @@
-<h1>Available Channels</h1>
-<aside class="col-xs-12 col-md-6 col-lg-3">
-  <ol class="list-group">
+
+<aside class="col-xs-12 col-sm-3 channels">
+  <h3>Available Channels</h3>
+  <ol class="channel-list">
     <% @channels.each do |channel| %>
-      <li class="list-group-item">
+      <li class="channel-list-item">
         
         <%= link_to channel.title, channel %>
         <% #link_to 'Edit', edit_channel_path(channel) %>
@@ -11,6 +12,6 @@
     <% end %>
 
   </ol>
-  <%= link_to 'New Channel', new_channel_path, :class => "btn btn-primary" %>
+  <%= link_to 'New Channel', new_channel_path, :class => "button" %>
 </aside>
 

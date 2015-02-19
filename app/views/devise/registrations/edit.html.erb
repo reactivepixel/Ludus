@@ -4,6 +4,10 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <h3>Sign up for <%= link_to 'Gravatar', 'https://en.gravatar.com/', :target => '_blank' %> to upload a profile image!</h3>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
