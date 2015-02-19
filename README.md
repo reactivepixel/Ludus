@@ -33,3 +33,8 @@ mysql.server start
 ```
 
 [View your app!](http://127.0.0.1:3000)
+
+## Contributers
+
+* Daniel O'Carroll
+* github.com/DOCarroll
