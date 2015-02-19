@@ -16,10 +16,20 @@
 //= require turbolinks
 //= require_tree .
 
+
 $(document).ready(function(){
 	$('.form_slide').hide();
+	$('.not_logged_in_msg').hide();
+	
+	//toggles form on button click
 	$('.slide_down').click(function(e){
 		e.preventDefault();
 		$('.form_slide').slideToggle('slow');
 	})
+
+	//toggles message for users who are not signed in
+	$('.slide_down_not_loggedIn').click(function(e){
+		e.preventDefault();
+		$('.not_logged_in_msg').slideToggle('slow');
+	}) 
 });

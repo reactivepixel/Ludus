@@ -23,41 +23,40 @@
 <% end %>
 </div>
 
-
-<a class="btn btn-primary slide_down" href="">Add Msg</a>
-
 <!-- form renders inly if users are logged in -->
-<% if current_user != nil%>
+<% if current_user != nil %>
+	<a class="btn btn-primary slide_down" href="">Add Msg</a>
 	<div class="form_slide">
 		<%= form_for(@msg) do |f| %>
-	  <% if @msg.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@msg.errors.count, "error") %> prohibited this msg from being saved:</h2>
+			<% if @msg.errors.any? %>
+				<div id="error_explanation">
+				  <h2><%= pluralize(@msg.errors.count, "error") %> prohibited this msg from being saved:</h2>
+				  <ul>
+				      <% @msg.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				  </ul>
+				</div> <!-- id="error_explanation" -->
+			<% end %>  <!--  if @msg.errors.any? -->
+			<div class="field">
+				<%= f.label :content %><br>
+				<%= f.text_area :content %>
+			</div>
+			<div class="field_hide">
+				<!-- second parameter in the hidden_field needs to be passed through :value; this is not in the Rails official documentation
+				http://stackoverflow.com/questions/12732046/undefined-method-merge-for-string-form-for-helper
+				http://apidock.com/rails/ActionView/Helpers/FormHelper/hidden_field
+				 -->
+			 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
+			</div> <!-- class="field_hide" -->
+			<div class="actions">
+				<%= f.submit %>
+			</div> 
+		<% end %> <!-- form_for(@msg) -->
+	</div> <!-- class="form_slide" -->
+<% else %>
+	<a class="btn btn-primary slide_down_not_loggedIn" href="">Add Msg</a>
+	<p class="not_logged_in_msg">You need to be logged in to add messages</p>
+<% end %> <!-- if current_user != nil -->
 
-	      <ul>
-	      <% @msg.errors.full_messages.each do |message| %>
-	        <li><%= message %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
 
-	  <div class="field">
-	    <%= f.label :content %><br>
-	    <%= f.text_area :content %>
-	  </div>
-	<div class="field_hide">
-		<!-- second parameter in the hidden_field needs to be passed through :value; this is not in the Rails official documentation
-		http://stackoverflow.com/questions/12732046/undefined-method-merge-for-string-form-for-helper
-		http://apidock.com/rails/ActionView/Helpers/FormHelper/hidden_field
-		 -->
-	 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
-	</div>
-
-	  
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-<% end %>
-</div>
