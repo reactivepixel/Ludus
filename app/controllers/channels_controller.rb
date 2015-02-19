@@ -10,7 +10,9 @@ class ChannelsController < ApplicationController
 
   def show
     @msgs = Msg.where(:channel_id => @channel.id)
-    respond_with(@channel)
+    @msg = current_user.msg.build
+    @channels = Channel.all
+    respond_with(:channel=>@channels, :msg=> @msg)
   end
 
   def new
@@ -40,7 +42,7 @@ class ChannelsController < ApplicationController
   private
     def set_channel
       @channel = Channel.find(params[:id])
-    end
+    end   
 
     def channel_params
       params.require(:channel).permit(:title)
