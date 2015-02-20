@@ -18,10 +18,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.form_slide{
+.channel_form_slide, .form_slide, {
 	margin-top: 20px;
 }
-.not_logged_in_msg {
+.not_logged_in_msg, .channel_not_logged_in_msg {
 	margin-top: 10px;
 	color: red;
 }
