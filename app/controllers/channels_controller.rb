@@ -6,7 +6,8 @@ class ChannelsController < ApplicationController
 
   def index
     @channels = Channel.all
-    respond_with(@channels)
+    @channel = Channel.new
+    respond_with(@channels, @channel)
   end
 
   def show
