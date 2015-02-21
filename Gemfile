@@ -45,3 +45,13 @@ gem 'bootstrap-sass', '~> 3.3.1.0'
 
 # fake data generator
 gem 'faker', '~> 1.4.3' # Docs - https://github.com/stympy/faker
+
+
+# Deployment
+gem 'capistrano', '~> 3.3.5'
+gem 'capistrano-rails', '~> 1.1.2'
+gem 'capistrano-bundler', '~> 1.1.4'
+
+# Because the Production server uses Rbenv
+gem 'capistrano-rbenv', '~> 2.0' # required
+gem 'capistrano-rbenv-install', '~> 1.2.0'
