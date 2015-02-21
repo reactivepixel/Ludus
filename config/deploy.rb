@@ -24,7 +24,7 @@ set :rbenv_roles, :all # default value
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :keep_releases, 5
-
+set :bundle_flags,    ""
 
 # Default value for :format is :pretty
 # set :format, :pretty
