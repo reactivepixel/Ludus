@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:reactivepixel/Ludus.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deployer/apps/ludus'
+set :deploy_to, '/var/www/apps/ludus'
 # set :default_env, { path: "/bin/rbenv:~/.rbenv/bin:$PATH" }
 # Default value for :scm is :git
 # set :scm, :git
