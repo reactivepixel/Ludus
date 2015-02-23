@@ -18,7 +18,9 @@
         	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")
  %></span>
         </div>
-        <p><%= msg.content %></p>
+        <div class="msg_content">
+        	<span><%= msg.content %></span>
+        </div>
 	</div>
 <% end %>
 </div>
