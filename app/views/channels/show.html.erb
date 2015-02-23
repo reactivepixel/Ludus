@@ -17,7 +17,9 @@
         	<span class="user_name"><%= msg.user.email %></span>
         	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y") %></span>
         </div>
-        <p><%= msg.content_html %></p>
+        <div>
+        	<%= msg.content_html %>
+        </div>
 	</div>
 <% end %>
 </div>
