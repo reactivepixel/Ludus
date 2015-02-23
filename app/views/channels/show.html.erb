@@ -14,7 +14,7 @@
     <% end %>
 	<div>
         <div class="meta">
-        	<span class="user_name"><%= msg.user.email %></span>
+        	<span class="user_name"><%= msg.user.first_name + ' ' + msg.user.last_name %></span>
         	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")
  %></span>
         </div>
@@ -25,5 +25,8 @@
 
 	</div>
 <% end %>
+</div>
+<div>
+<%= render 'users' %>
 </div>
 <%= link_to 'Add Msg', new_msg_path, :class => 'btn btn-primary' %>
