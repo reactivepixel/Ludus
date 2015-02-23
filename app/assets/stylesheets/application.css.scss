@@ -21,9 +21,10 @@
 .channel_form_slide, .form_slide, {
 	margin-top: 20px;
 }
-.not_logged_in_msg, .channel_not_logged_in_msg {
+.not_logged_in_msg, .channel_not_logged_in_msg, .alert {
 	margin-top: 10px;
 	color: red;
+	padding: 10px;
 }
 
 .slide_down{
