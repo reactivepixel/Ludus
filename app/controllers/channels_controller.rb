@@ -14,12 +14,11 @@ class ChannelsController < ApplicationController
     @msgs = Msg.where(:channel_id => @channel.id)
     
     #validates if user is logged in and renders the view accordingly
-    if current_user===nil
-      respond_with(@channels)
-    else
+    if current_user!=nil
       @msg = current_user.msg.build
-      @channels = Channel.all
-      respond_with(:channel=>@channels, :msg=> @msg)
+      respond_with(:msg=> @msg)
+    else
+     
   end
 end
 
