@@ -11,7 +11,10 @@
   <tbody>
     <% @msgs.each do |msg| %>
       <tr>
-        <td><%= msg.user.email + " => " + msg.content %></td>
+        <td>
+          <span style="font-weight: 600;"><%= msg.user.email + ":"%></span>
+          <%= msg.content_html %>
+       </td>
         <% if msg.user == current_user %>
         <td><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning" %></td>
         <td><%= link_to 'Destroy', msg, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>

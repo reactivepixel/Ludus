@@ -3,6 +3,7 @@
   <ol class="list-group">
     <% @channels.each do |channel| %>
       <li class="list-group-item">
+
         
         <%= link_to channel.title, channel %>
         <% #link_to 'Edit', edit_channel_path(channel) %>
@@ -25,4 +26,5 @@
       <% end %>
   </section>
 </article>
+
   
