@@ -26,7 +26,7 @@ set :rbenv_roles, :all # default value
 set :keep_releases, 5
 set :bundle_flags,    ""
 
-set :rails_env, "production"
+
 
 # Default value for :format is :pretty
 # set :format, :pretty
