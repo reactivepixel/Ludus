@@ -15,15 +15,14 @@
 	<div>
         <div class="meta">
         	<span class="user_name"><%= msg.user.email %></span>
-        	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")
- %></span>
+        	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y") %></span>
         </div>
         <p><%= msg.content_html %></p>
 	</div>
 <% end %>
 </div>
 
-<!-- form renders inly if users are logged in -->
+<!-- form renders only if users are logged in -->
 <% if current_user != nil %>
 	<a class="btn btn-primary slide_down" href="">Add Msg</a>
 	<div class="form_slide">
