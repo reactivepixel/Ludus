@@ -34,7 +34,7 @@ $(document).ready(function(){
 	//toggles message for users who try to add channel but are not signed in
 	$('.channnel_slide_down_not_loggedIn').click(function(e){
 		e.preventDefault();
-		$('.channel_not_logged_in_msg').slideToggle('slow');
+		$('.channel_not_logged_in_msg').fadeIn();
 	}) 
 
 	//toggles add message form on button click
@@ -46,6 +46,6 @@ $(document).ready(function(){
 	//toggles message for users who try to add message but are not signed in
 	$('.slide_down_not_loggedIn').click(function(e){
 		e.preventDefault();
-		$('.not_logged_in_msg').slideToggle('slow');
+		$('.not_logged_in_msg').fadeIn();
 	}) 
 });
