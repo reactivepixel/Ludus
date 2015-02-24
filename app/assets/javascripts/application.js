@@ -21,7 +21,7 @@
 $(document).ready(function(){
 	//hide add channel form and hide add message form 
 	$('.form_slide').hide();
-	$('.not_logged_in_msg').hide();
+	// $('.not_logged_in_msg').hide();
 	$('.channel_form_slide').hide();
 	$('.channel_not_logged_in_msg').hide();
 
