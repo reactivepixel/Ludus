@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, only: [:index]
 
   root to: "channels#index"
   
   resources :channels
   
   resources :msgs
+
+  resources :users
 
 
 
