@@ -16,7 +16,9 @@ channel.save!
 	admin = User.new(
 	      :email                 => "admin@apextion.com",
 	      :password              => "administration",
-	      :password_confirmation => "administration"
+	      :password_confirmation => "administration",
+	      :first_name            => "Captain",
+	      :last_name             => "Ludus"
 		)
 	admin.save!
 
