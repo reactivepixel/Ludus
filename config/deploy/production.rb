@@ -15,7 +15,7 @@ role :db,  %w{deployer@apextion.com}
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
-
+set :stage, :production
 server 'apextion.com', user: 'deployer', roles: %w{web app}#, my_property: :my_value
 
 
