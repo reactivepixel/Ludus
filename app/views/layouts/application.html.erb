@@ -14,23 +14,23 @@
       <div class="container">
         <div id="logo" class="navbar-brand"><%= link_to "Ludus", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
-    
+
     <% if user_signed_in? -%>
     <ul class="nav navbar-nav navbar-right">
-      
+
       <li><%= link_to 'Account', edit_user_registration_path %></li>
       <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
     </ul>
-    
+
     <% else %>
-    
+
     <ul class="nav navbar-nav pull-right">
       <li><%= link_to 'Sign Up', new_user_registration_path %></li>
       <li><%= link_to 'Sign In', new_user_session_path %></li>
     </ul>
-    
+
     <% end %>
-    
+
     </nav>
   </div>
 </div>
@@ -40,7 +40,7 @@
     <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% end %>
 
-    <div id="content" class="col-md-9 center-block">
+    <div id="content" class="col-md-12center-block">
       <%= yield %>
     </div>
   </div>
