@@ -16,6 +16,9 @@ $primary: #263238;			// blue grey 900
 	color: $primary_sub2;
 }
 .msgs{
+	padding: 15px;
+	border: 1px solid black;
+	border-radius: 10px;
 	overflow: scroll;
 	max-height: 25em;
 	color: $primary;
@@ -24,6 +27,7 @@ $primary: #263238;			// blue grey 900
 	float: right;
 }
 
-#recentPostFeed{
-	float: right;
+.msg_content{
+	margin-bottom: 30px;
+	margin-top: 5px;
 }

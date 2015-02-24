@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/reactivepixel/Ludus/badges/gpa.svg)](https://codeclimate.com/github/reactivepixel/Ludus)
+
 # Ludus
 #### Communication Platform
 
@@ -33,7 +35,12 @@ mysql.server start
 [View your app!](http://127.0.0.1:3000)
 
 
-##Carmine Trovato
-github.com/ctrovato
+## Contributers
 
+* Daniel O'Carroll
+* github.com/DOCarroll
+
+
+* Carmine Trovato
+* github.com/ctrovato
 
