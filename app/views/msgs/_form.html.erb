@@ -16,13 +16,25 @@
     <%= f.text_area :content %>
   </div>
 
+
 <div class="field">
   <%= f.collection_select :channel_id, @channels,:id,:title, include_blank: false %>
 </div>
+</br>
 
-
-  
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>
+
+
+<form action="/file-upload"
+  class="dropzone"
+  id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
+
+
+
+</form>
+

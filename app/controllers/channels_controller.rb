@@ -39,6 +39,7 @@ class ChannelsController < ApplicationController
     respond_with(@channel)
   end
 
+
   private
     def set_channel
       @channel = Channel.find(params[:id])
