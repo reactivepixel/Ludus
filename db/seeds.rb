@@ -16,7 +16,9 @@ channel.save!
 	admin = User.new(
 	      :email                 => "admin@apextion.com",
 	      :password              => "administration",
-	      :password_confirmation => "administration"
+	      :password_confirmation => "administration",
+	      :first_name            => "Captain",
+	      :last_name             => "Ludus"
 		)
 	admin.save!
 
@@ -26,13 +28,15 @@ users = Array.new
 	user = User.new(
 	      :email                 => Faker::Internet.email,
 	      :password              => pwd,
-	      :password_confirmation => pwd
+	      :password_confirmation => pwd,
+	      :first_name 			 => Faker::Name.first_name,
+	      :last_name			 => Faker::Name.last_name
 		)
 	user.save!
 	users.push(user)
 end
 
-25.times do 
+25.times do
 	msg = Msg.new(
 			:content			=> Faker::Lorem.sentence,
 			:user_id			=> users.sample.id,
