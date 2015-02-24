@@ -7,11 +7,10 @@
 <p>
   <strong>Content:</strong>
   <%= @msg.content_html %>
-  <%= @msg.channel.title %>
 </p>
 <p>
   <strong>User:</strong>
-  <%= @msg.user.email %>
+  <%= @msg.user.first_name %> <%= @msg.user.last_name %>
 </p>
 <p>
   <strong>Last Updated:</strong>

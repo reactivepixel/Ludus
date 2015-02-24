@@ -12,7 +12,7 @@
     <% @msgs.each do |msg| %>
       <tr>
         <td>
-          <span style="font-weight: 600;"><%= msg.user.email + ":"%></span>
+          <span style="font-weight: 600;"><%= msg.user.first_name + ":"%></span>
           <%= msg.content_html %>
        </td>
         <% if msg.user == current_user %>

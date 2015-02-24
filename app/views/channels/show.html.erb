@@ -14,8 +14,9 @@
     <% end %>
 	<div>
         <div class="meta">
-        	<span class="user_name"><%= msg.user.email %></span>
-        	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y") %></span>
+			<span><%= image_tag avatar_url(msg.user) %></span>
+			<span class="user_name"><%= msg.user.first_name + ' ' + msg.user.last_name %></span>
+			<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y") %></span>
         </div>
         <div class="msg_content">
         	<%= msg.content_html %>
@@ -60,5 +61,3 @@
 	<!-- <p class="not_logged_in_msg alert alert-danger bs-alert-old-docs">You need to be logged in to add messages. </p> -->
 
 <% end %> <!-- if current_user != nil -->
-
-
