@@ -1,30 +1,40 @@
-<h1>
+<h1 id="channel-title">
 	<%= @channel.title %>
 </h1>
 <p id="notice"><%= notice %></p>
-<div class="msgs">
+<div id="msgs">
 <% @msgs.each do |msg| %>
-	<% if msg.user == current_user %>
-        <aside>
-	        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
-	        </span>
-	        <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
-	        </span>
-		</aside>
-    <% end %>
-	<div>
+
+	<div class="col-xs-12">
         <div class="meta">
-        	<span><%= image_tag avatar_url(msg.user) %></span>
-        	<span class="user_name"><%= msg.user.email %></span>
-        	<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y")
- %></span>
+        	<div class="col-xs-1 user-gravatar text-right">
+        		<span><%= image_tag avatar_url(msg.user), :class => 'img-circle', :width => '40' %></span>
+        	</div>
+        	<div class="col-xs-11 user-msg">
+        		
+        		<span class="user_name text-muted col-xs-6"><strong><%= msg.user.email %></strong></span>
+        		<div class="col-xs-5 text-right">
+        			<% if msg.user == current_user %>
+				        <aside class="options">
+					        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
+					        </span>
+					        <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+					        </span>
+						</aside>
+				    <% end %>
+        		</div>
+	        	<span class="timestamp text-muted text-right col-xs-1"><%= msg.updated_at.strftime("%H:%M:%S")%></span>
+	        	<p class="col-xs-12"><%= msg.content %></p>
+        	</div>
         </div>
-        <p><%= msg.content %></p>
-
-		
-
-
 	</div>
+
 <% end %>
 </div>
-<%= link_to 'Add Msg', new_msg_path, :class => 'button' %>
+<p><%= link_to 'Add Message', new_msg_path, :class => 'button new-msg text-center' %></p>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
+	});
+</script>
