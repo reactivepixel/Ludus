@@ -49,5 +49,7 @@ test:
 #
 production:
   <<: *default
+  username: deployer
+  password: solartwilight
   database: ludus_production
   #  password: <%= ENV['LUDUS_DATABASE_PASSWORD'] %>
