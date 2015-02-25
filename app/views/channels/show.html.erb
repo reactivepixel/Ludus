@@ -1,34 +1,27 @@
-<h1 id="channel-title">
+<h1>
 	<%= @channel.title %>
 </h1>
 <p id="notice"><%= notice %></p>
-<div id="msgs">
+<div class="msgs">
 <% @msgs.each do |msg| %>
-
-	<div class="col-xs-12">
+	<% if msg.user == current_user %>
+        <aside>
+	        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
+	        </span>
+	        <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+	        </span>
+		</aside>
+    <% end %>
+	<div>
         <div class="meta">
-        	<div class="col-xs-1 user-gravatar text-right">
-        		<span><%= image_tag avatar_url(msg.user), :class => 'img-circle', :width => '40' %></span>
-        	</div>
-        	<div class="col-xs-11 user-msg">
-        		
-        		<span class="user_name text-muted col-xs-6"><strong><%= msg.user.first_name + ' ' + msg.user.last_name %></strong></span>
-        		<div class="col-xs-5 text-right">
-        			<% if msg.user == current_user %>
-				        <aside class="options">
-					        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
-					        </span>
-					        <span><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
-					        </span>
-						</aside>
-				    <% end %>
-        		</div>
-	        	<span class="timestamp text-muted text-right col-xs-1"><%= msg.updated_at.strftime("%H:%M:%S")%></span>
-	        	<p class="col-xs-12"><%= msg.content_html %></p>
-        	</div>
+			<span><%= image_tag avatar_url(msg.user) %></span>
+			<span class="user_name"><%= msg.user.first_name + ' ' + msg.user.last_name %></span>
+			<span class="timestamp"><%= msg.updated_at.strftime("%m/%d/%Y") %></span>
+        </div>
+        <div class="msg_content">
+        	<%= msg.content_html %>
         </div>
 	</div>
-
 <% end %>
 </div>
 
@@ -47,7 +40,8 @@
 				  </ul>
 				</div> <!-- id="error_explanation" -->
 			<% end %>  <!--  if @msg.errors.any? -->
-			<div class="field col-xs-12 col-sm-10">
+			<div class="field">
+				<%= f.label :content %><br>
 				<%= f.text_area :content %>
 			</div>
 			<div class="field_hide">
@@ -57,7 +51,7 @@
 				 -->
 			 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
 			</div> <!-- class="field_hide" -->
-			<div class="actions col-xs-12 col-sm-2 text-right">
+			<div class="actions">
 				<%= f.submit %>
 			</div>
 		<% end %> <!-- form_for(@msg) -->
@@ -67,10 +61,3 @@
 	<!-- <p class="not_logged_in_msg alert alert-danger bs-alert-old-docs">You need to be logged in to add messages. </p> -->
 
 <% end %> <!-- if current_user != nil -->
-
-
-<script type="text/javascript">
-	$(document).ready(function(){
-	    $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
-	});
-</script>
