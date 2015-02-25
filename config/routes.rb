@@ -4,13 +4,16 @@ Rails.application.routes.draw do
 
   get 'dropbox/index'
 
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   root to: "channels#index"
-  
+
   resources :channels
 
-  devise_for :users
-  
   resources :msgs
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,4 @@
-<%= form_for(@msg) do |f| %>
+<%= form_for(@msg, html: { multipart: true } ) do |f| %>
   <% if @msg.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@msg.errors.count, "error") %> prohibited this msg from being saved:</h2>
@@ -25,6 +25,7 @@
 
 
 <div class="actions">
+
     <%= f.submit %>
 </div>
 

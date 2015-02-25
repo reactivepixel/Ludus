@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use mysql as the database for Active Record
@@ -12,15 +12,20 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
+gem 'therubyracer',  platforms: :ruby
+# See https://github.com/thoughtbot/paperclip for support on Paperclip
 gem "paperclip", "~> 4.2"
 
+# auto_html is a Rails extension for transforming URLs to appropriate resource (image, link, YouTube, Vimeo video,...).
+# see more on: https://github.com/dejan/auto_html
+gem "auto_html"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+#see more about this gem on https://github.com/kossnocorp/jquery.turbolinks
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,3 +53,14 @@ gem 'bootstrap-sass', '~> 3.3.1.0'
 
 # fake data generator
 gem 'faker', '~> 1.4.3' # Docs - https://github.com/stympy/faker
+
+
+# Deployment
+gem 'capistrano', '~> 3.3.5'
+gem 'capistrano-rails', '~> 1.1.2'
+gem 'capistrano-bundler', '~> 1.1.4'
+
+# Because the Production server uses Rbenv
+gem 'capistrano-rbenv', '~> 2.0' # required
+gem 'capistrano-rbenv-install', '~> 1.2.0'
+# gem 'capistrano-passenger'

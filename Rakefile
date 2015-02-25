@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+# task :build_check do |t, args|
+#   puts "Current env is #{ENV['RAKE_ENV']}"
+# end
