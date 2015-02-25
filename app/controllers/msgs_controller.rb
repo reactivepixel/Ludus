@@ -41,7 +41,6 @@ class MsgsController < ApplicationController
     respond_with(@msg)
   end
 
-
   private
     def set_msg
       @msg = Msg.find(params[:id])
