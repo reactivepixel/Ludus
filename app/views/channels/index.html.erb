@@ -9,7 +9,20 @@
         <%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'channel-destroy'  %>
       </li>
     <% end %>
-
   </ol>
-  <p class="text-right"><%= link_to 'New Channel', new_channel_path, :class => "button" %></p>
+
+  <% if current_user != nil %>
+    <article class="col-xs-12">
+      <p class="text-center"><%= link_to 'New Channel', new_channel_path, :class => "button new_channel_slide_button" %></p>
+      <section class="channel_form_slide">
+        <%= render 'form' %>
+  <% else %>
+        <div class="col-xs-12">
+          <p class="text-center"><%= link_to 'New Channel', new_channel_path, :class => "button channnel_slide_down_not_loggedIn" %></p>
+          <p class="channel_not_logged_in_msg alert alert-danger bs-alert-old-docs col-xs-12">You need to be logged in to add channel. <%= link_to 'Sign up here.', new_user_registration_path %></p>
+        </div>
+      </section>
+    </article>
+  <% end %>
+
 </aside>

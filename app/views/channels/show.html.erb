@@ -24,14 +24,49 @@
 				    <% end %>
         		</div>
 	        	<span class="timestamp text-muted text-right col-xs-1"><%= msg.updated_at.strftime("%H:%M:%S")%></span>
-	        	<p class="col-xs-12"><%= msg.content %></p>
+	        	<p class="col-xs-12"><%= msg.content_html %></p>
         	</div>
         </div>
 	</div>
 
 <% end %>
 </div>
-<p><%= link_to 'Add Message', new_msg_path, :class => 'button new-msg text-center' %></p>
+
+<!-- form renders only if users are logged in -->
+<% if current_user != nil %>
+	<!-- <a class="btn btn-primary slide_down" href="">Add Msg</a> -->
+	<div class="form_slide">
+		<%= form_for(@msg) do |f| %>
+			<% if @msg.errors.any? %>
+				<div id="error_explanation">
+				  <h2><%= pluralize(@msg.errors.count, "error") %> prohibited this msg from being saved:</h2>
+				  <ul>
+				      <% @msg.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				  </ul>
+				</div> <!-- id="error_explanation" -->
+			<% end %>  <!--  if @msg.errors.any? -->
+			<div class="field col-xs-12 col-sm-10">
+				<%= f.text_area :content %>
+			</div>
+			<div class="field_hide">
+				<!-- second parameter in the hidden_field needs to be passed through :value; this is not in the Rails official documentation
+				http://stackoverflow.com/questions/12732046/undefined-method-merge-for-string-form-for-helper
+				http://apidock.com/rails/ActionView/Helpers/FormHelper/hidden_field
+				 -->
+			 	<%=  f.hidden_field(:channel_id,  :value => params[:id]) %>
+			</div> <!-- class="field_hide" -->
+			<div class="actions col-xs-12 col-sm-2 text-right">
+				<%= f.submit %>
+			</div> 
+		<% end %> <!-- form_for(@msg) -->
+	</div> <!-- class="form_slide" -->
+<% else %>
+	<%# <a class="btn btn-primary slide_down_not_loggedIn" href="">Add Msg</a> %>
+	<!-- <p class="not_logged_in_msg alert alert-danger bs-alert-old-docs">You need to be logged in to add messages. </p> -->
+
+<% end %> <!-- if current_user != nil -->
 
 <script type="text/javascript">
 	$(document).ready(function(){
