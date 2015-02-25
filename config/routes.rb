@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
+
+  get 'dropbox/index'
+
   root to: "channels#index"
   
   resources :channels
