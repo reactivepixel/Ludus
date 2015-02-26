@@ -4,10 +4,10 @@ class Msg < ActiveRecord::Base
     # see demo: http://rors.org/demos/auto_html
     # see jQuery option as well: https://github.com/dejan/jquery-auto_html
     html_escape
-    image(:width => 440, :height => 250)
+    image
     twitter
     vimeo	
-    youtube(:width => 440, :height => 250, :autoplay => false)
+    youtube(:width => 496, :height => 265, :autoplay => false)
     soundcloud
     link :target => "_blank", :rel => "nofollow"
     simple_format
