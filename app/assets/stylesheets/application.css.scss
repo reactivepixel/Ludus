@@ -15,8 +15,14 @@
  */
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h1, h2, h3{
+	font-family 		: 'Open Sans', sans-serif;
+	font-weight 		: 300;
+	color 				: rgba(97,97,97 ,1);
+}
 
 .channel_form_slide, .form_slide, {
 	margin-top: 20px;
@@ -33,5 +39,4 @@
 .msg_content img, .msg_content iframe {
 	max-width: 60% !important;
 }
-
 
