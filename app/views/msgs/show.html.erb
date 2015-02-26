@@ -6,12 +6,11 @@
 </p>
 <p>
   <strong>Content:</strong>
-  <%= @msg.content %>
-  <strong><%= @msg.channel.title %></strong>
+  <%= @msg.content_html %>
 </p>
 <p>
   <strong>User:</strong>
-  <%= @msg.user.first_name + ' ' + @msg.user.last_name %>
+  <%= @msg.user.first_name %> <%= @msg.user.last_name %>
 </p>
 <p>
   <strong>Last Updated:</strong>

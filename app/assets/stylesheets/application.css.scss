@@ -15,5 +15,24 @@
  */
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h1, h2, h3{
+	font-family 		: 'Open Sans', sans-serif;
+	font-weight 		: 300;
+	color 				: rgba(97,97,97 ,1);
+}
+
+.channel_form_slide, .form_slide, {
+	margin-top: 20px;
+}
+.not_logged_in_msg, .channel_not_logged_in_msg, .alert {
+	margin-top: 10px;
+	padding: 10px;
+	color: red;
+	padding: 10px;
+}
+.slide_down, .slide_down_not_loggedIn{
+	margin-top: 30px;
+}

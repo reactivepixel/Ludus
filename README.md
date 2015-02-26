@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/reactivepixel/Ludus/badges/gpa.svg)](https://codeclimate.com/github/reactivepixel/Ludus)
+
 # Ludus
 #### Communication Platform
 

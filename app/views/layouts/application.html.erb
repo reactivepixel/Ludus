@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Ludus</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,400' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <header class="navbar navbar-default" role="navigation">
+  <header class="navbar" role="navigation">
     <div class="navbar-inner">
       <div class="container">
         <div id="logo" class="navbar-brand"><%= link_to "Ludus", root_path %></div>
@@ -25,7 +32,7 @@
     
     <ul class="nav navbar-nav pull-right">
       <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <li><%= link_to 'Log In', new_user_session_path, :class => 'button', :id => 'sign-in' %></li>
     </ul>
     
     <% end %>
@@ -34,12 +41,11 @@
   </div>
 </div>
 </header>
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-success text-center") %>
+  <% end %>
   <div id="main_content" class="container">
-    <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-info") %>
-    <% end %>
-
-    <div id="content" class="col-md-9 center-block">
+    <div id="content" class="col-md-12 center-block">
       <%= yield %>
     </div>
   </div>
