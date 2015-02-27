@@ -1,6 +1,7 @@
 <h1 id="channel-title">
 	<%= @channel.title %>
 </h1>
+	<h4><%= @channel.topic %></h4><span><%= link_to 'Edit', edit_channel_path(@channel), :class => 'channel-edit' %></span>
 <p id="notice"><%= notice %></p>
 <div id="msgs">
 <% @msgs.each do |msg| %>
@@ -10,9 +11,10 @@
         	<div class="col-xs-2 col-sm-1 user-gravatar text-right">
         		<span><%= image_tag avatar_url(msg.user), :class => 'img-circle', :width => '40' %></span>
         	</div>
-        	<div class="col-xs-10 col-sm-11 user-msg">
-        		<span class="user_name text-muted col-xs-12 col-sm-4 col-md-5"><strong><%= msg.user.email %></strong></span>
-        		<div class="hidden-xs col-sm-5 text-right">
+        	<div class="col-xs-11 user-msg">
+        		
+        		<span style='color:<%= msg.user.color %>;'class="user_name text-muted col-xs-12 col-sm-4 col-md-5"><strong><%= msg.user.first_name %> <%= msg.user.last_name %></strong></span>
+        		<div class="col-xs-5 text-right">
         			<% if msg.user == current_user %>
 				        <aside class="options">
 					        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
@@ -59,6 +61,7 @@
 
 <% end %>
 </div>
+
 
 <!-- form renders only if users are logged in -->
 <% if current_user != nil %>

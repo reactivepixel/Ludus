@@ -25,11 +25,13 @@
           <span class="icon-bar"></span>
         </button>
         <div id="logo" class="navbar-brand"><%= link_to "Ludus", root_path %></div>
+
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? -%>
           <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Users', '/users' %></li>
             <li><%= link_to 'Account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
           </ul>

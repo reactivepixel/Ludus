@@ -16,6 +16,8 @@ gem 'therubyracer',  platforms: :ruby
 
 # see https://github.com/vmg/redcarpet
 gem 'redcarpet'
+
+gem 'httparty'
 # auto_html is a Rails extension for transforming URLs to appropriate resource (image, link, YouTube, Vimeo video,...).
 # see more on: https://github.com/dejan/auto_html
 gem "auto_html"

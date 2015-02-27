@@ -53,5 +53,6 @@ end
 
     def channel_params
       params.require(:channel).permit(:title)
+      params.require(:channel).permit(:topic)
     end
 end
