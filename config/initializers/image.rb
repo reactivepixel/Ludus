@@ -7,3 +7,4 @@ AutoHtml.add_filter(:image).with({}) do |text, options|
     %|<img src="#{match}" alt="" width="#{width}" height="#{height}" />|
   end
 end
+

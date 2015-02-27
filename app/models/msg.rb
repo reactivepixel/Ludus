@@ -11,7 +11,7 @@ class Msg < ActiveRecord::Base
     soundcloud
     redcarpet
     link :target => "_blank", :rel => "nofollow"
-    
+    simple_format
   end
   belongs_to :user
   belongs_to :channel

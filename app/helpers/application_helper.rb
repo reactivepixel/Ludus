@@ -4,6 +4,7 @@ module ApplicationHelper
 		"http://gravatar.com/avatar/#{gravatar_id}.png?d=retro"
 	end
 
+	# not used in this version; gem auto_html provides a filter redcarpet that allows to use markdown
 	def markdown(text)
 		options = {
 			hard_wrap: true,
