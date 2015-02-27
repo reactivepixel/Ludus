@@ -7,7 +7,7 @@ class Msg < ActiveRecord::Base
     image
     twitter
     vimeo	
-    youtube(:width => 575, :height => 300, :autoplay => false)
+    youtube(:width => 595, :height => 300, :autoplay => false)
     soundcloud
     redcarpet
     link :target => "_blank", :rel => "nofollow"

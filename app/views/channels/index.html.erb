@@ -1,12 +1,12 @@
-<aside class="col-xs-12 col-sm-4 channels">
+<aside class="col-xs-12 col-sm-6 col-md-4 channels">
   <h3>Available Channels</h3>
   <ol class="channel-list">
     <% @channels.each do |channel| %>
       <li class="channel-list-item">
         
         <%= link_to channel.title, channel, :class => 'btn title' %>
-        <%= link_to 'Edit', edit_channel_path(channel), :class => 'channel-edit' %>
-        <%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'channel-destroy'  %>
+        <% link_to 'Edit', edit_channel_path(channel), :class => 'channel-edit' %>
+        <% link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'channel-destroy'  %>
       </li>
     <% end %>
   </ol>
