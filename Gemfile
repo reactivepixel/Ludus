@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
+# see https://github.com/vmg/redcarpet
+gem 'redcarpet'
 # auto_html is a Rails extension for transforming URLs to appropriate resource (image, link, YouTube, Vimeo video,...).
 # see more on: https://github.com/dejan/auto_html
 gem "auto_html"
