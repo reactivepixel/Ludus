@@ -26,8 +26,8 @@
   </article>
 </aside>
 
-
-<article class="col-xs-12 col-sm-8 col-md-9 short_feed">
+<div id="recentMsgs">
+<aside class="col-xs-12 col-sm-8 col-md-9 short_feed">
   <h3>Recent Messages</h3>
   <ol class="list-group">
     <% @msgs.each do |msg| %>
@@ -51,5 +51,6 @@
       </li>
     <% end %>
   </ol>
-</article>
+</aside>
+<div>
 
