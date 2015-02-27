@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, maximum-scale=1">
 
   <title>Ludus</title>
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,900' rel='stylesheet' type='text/css'>
@@ -14,40 +14,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <header class="navbar" role="navigation">
-    <div class="navbar-inner">
-      <div class="container">
+<header>
+  <nav class="navbar navbar-default" id="top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <div id="logo" class="navbar-brand"><%= link_to "Ludus", root_path %></div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-    
-    <% if user_signed_in? -%>
-    <ul class="nav navbar-nav navbar-right">
-      
-      <li><%= link_to 'Account', edit_user_registration_path %></li>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
-    </ul>
-    
-    <% else %>
-    
-    <ul class="nav navbar-nav pull-right">
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <li><%= link_to 'Log In', new_user_session_path, :class => 'button', :id => 'sign-in' %></li>
-    </ul>
-    
-    <% end %>
-    
-    </nav>
-  </div>
-</div>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <% if user_signed_in? -%>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+          </ul>
+          
+          <% else %>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Log In', new_user_session_path, :class => 'button', :id => 'sign-in' %></li>
+          </ul>
+          
+          <% end %>
+      </div>
+    </div>
+
+  </nav>
 </header>
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert alert-success text-center") %>
   <% end %>
   <div id="main_content" class="container">
-    <div id="content" class="col-md-12 center-block">
+    <div id="content" >
       <%= yield %>
     </div>
+    <a href="#top" class="col-xs-12 hidden-sm hidden-md hidden-lg text-center">Back to Top</a>
   </div>
   </div>
 </body>

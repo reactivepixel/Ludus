@@ -74,9 +74,17 @@ body{
 }
 .alert{
 	border-radius: 0 !important;
+	color: $grey !important;
 }
 #main_content{
 	margin-bottom: 20px;
+}
+a[href="#top"]{
+	background-color: #efefef;
+	margin-top: 10px;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: $border-radius;
 }
 
 // ---------- 5: Header --------------------------
@@ -132,11 +140,13 @@ aside.channels{
 			opacity: 1;
 		}
 		a.title{
+			box-shadow: $button-box-shadow;
 			border-radius: $border-radius;
 			background-color: rgba(255,152,0 ,1);
 			color: #fff;
 			&:hover{ 
 				color: #fff; 
+				box-shadow: $button-box-shadow-hover;
 			}
 		}
 	}
@@ -173,11 +183,45 @@ aside.channels{
 }
 .meta{
 	margin: 0;
+	padding: 0 !important;
 	p{
 		width: 100%;
 		clear: both;
 	}
 
+}
+.options{
+	a {
+		box-shadow: $button-box-shadow;
+	}
+}
+.dropdown{
+	padding: 0 !important;
+}
+ul.dropdown-menu{
+	left: auto !important;
+	right: 20% !important;
+	.options{
+		padding-top: 5px;
+		span{
+			padding: 0 5px;
+			a{
+				width: 100%;
+			}
+		}
+	}
+}
+button[data-toggle="dropdown"]{
+	box-shadow: $button-box-shadow;
+	background-color: #efefef;
+	border: 0;
+	border-radius: $border-radius;
+	padding: 0 6px 0 4px;
+	outline: none;
+}
+button.current-user-options{
+	background-color: $blue;
+	color: #fff;
 }
 
 // ---------- 8: Scrollbar --------------------------
@@ -256,6 +300,58 @@ select#msg_channel_id{
 	}
 }
 
+$xsmall : 768px;
 
+@media screen and (max-width: $xsmall) {
+	iframe{
+		width: 100%;
+	}
+	#msgs{
+		padding: 0 0 40px 0;
+		margin-bottom: 0;
+		max-height: none !important;
+		height: auto !important;
+		border: 0;
+		overflow-x: hidden;
+		overflow-y: visible;
+		p{
+			margin: 0;
+			padding: 0 !important;
+		}
+		.each-msg{
+			margin: 5px 0;
+			padding: 10px 5px 5px 5px;
+		}
+	}
+	.user_name{
+		white-space: nowrap;
+		width: 100%;                   
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding-left: 10px;
+	}
+	h1{
+		font-size: 16pt !important;
+		font-weight: 700 !important;
+		margin-top: 0 !important;
+	}
+	.timestamp{
+		padding: 0 !important;
+	}
+	input{
+		width: 100% !important;
+	} 
+	.channel-list {
+		text-align: center;
+		a{
+			width: 90%;
+			padding: 10px;
+		}
+	}
+	.form_slide{
+		margin-top: 0 !important;
+	}
+
+}
 
 // Material Design Colors - http://www.materialui.co/colors

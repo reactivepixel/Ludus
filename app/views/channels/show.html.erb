@@ -5,15 +5,14 @@
 <div id="msgs">
 <% @msgs.each do |msg| %>
 
-	<div class="col-xs-12">
-        <div class="meta">
-        	<div class="col-xs-1 user-gravatar text-right">
+	<div class="col-xs-12 each-msg">
+        <div class="meta col-xs-11 col-sm-12">
+        	<div class="col-xs-2 col-sm-1 user-gravatar text-right">
         		<span><%= image_tag avatar_url(msg.user), :class => 'img-circle', :width => '40' %></span>
         	</div>
-        	<div class="col-xs-11 user-msg">
-        		
-        		<span class="user_name text-muted col-xs-6"><strong><%= msg.user.email %></strong></span>
-        		<div class="col-xs-5 text-right">
+        	<div class="col-xs-10 col-sm-11 user-msg">
+        		<span class="user_name text-muted col-xs-12 col-sm-4 col-md-5"><strong><%= msg.user.email %></strong></span>
+        		<div class="hidden-xs col-sm-5 text-right">
         			<% if msg.user == current_user %>
 				        <aside class="options">
 					        <span><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
@@ -23,10 +22,36 @@
 						</aside>
 				    <% end %>
         		</div>
-	        	<span class="timestamp text-muted text-right col-xs-1"><%= msg.updated_at.strftime("%H:%M:%S")%></span>
+	        	<span class="timestamp text-muted text-right hidden-xs col-sm-3 col-md-2"><%= msg.updated_at.to_time.to_i %></span>
 	        	<p class="col-xs-12"><%= msg.content_html %></p>
         	</div>
         </div>
+        <div class="dropdown col-xs-1 hidden-sm hidden-md hidden-lg text-right">
+			<% if msg.user == current_user %>
+				<button id="dLabel" class="current-user-options" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    	<span class="caret"></span>
+				</button>
+			<% else %>
+				<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="caret"></span>
+				</button>
+			<% end %>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		    <li class="text-center"><span class="timestamp text-muted text-center"><%= msg.updated_at.to_time.to_i %></span></li>
+		    <li>
+		    	<div>
+        			<% if msg.user == current_user %>
+				        <aside class="options">
+					        <span class="col-xs-6"><%= link_to 'Edit', edit_msg_path(msg), :class => "btn btn-warning btn-xs" %>
+					        </span>
+					        <span class="col-xs-6"><%= link_to 'Destroy', msg, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+					        </span>
+						</aside>
+				    <% end %>
+        		</div>
+		    </li>
+		  </ul>
+		</div>
 	</div>
 
 <% end %>
@@ -68,7 +93,16 @@
 
 <% end %> <!-- if current_user != nil -->
 
-<script type="text/javascript">
+<script>
+	jQuery.each($('.timestamp'), function(index, time){
+		// console.log(time.innerHTML);
+		var moment_from_time = moment.unix(time.innerHTML).fromNow();
+		time.innerHTML = moment_from_time;
+	});
+
+	$(document).ready(function(){
+		window.scrollTo(0,document.body.scrollHeight);
+	});
 	$(document).ready(function(){
 	    $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
 	});
