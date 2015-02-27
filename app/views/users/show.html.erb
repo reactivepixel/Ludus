@@ -1,0 +1,17 @@
+<h2>Profile</h2>
+<%= image_tag avatar_url(@user), :class => 'img-circle', :width => '100' %><br />
+<field>
+	<label>First Name: </label><%= @user.first_name %>
+</field><br />
+<field>
+	<label>Last Name:</label><%= @user.last_name %>
+</field><br />
+<field>
+	<label>Email:</label><%= @user.email %><br />
+</field>
+<% if @user.repo_name != nil %>
+<h2>Repos</h2>
+<% @json.each do |json| %>
+<a href="<%= json["html_url"] %>"><%= json["name"] %></a><br />
+<% end %>
+<% end %>

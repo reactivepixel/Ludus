@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
+gem 'httparty'
+
+
 # auto_html is a Rails extension for transforming URLs to appropriate resource (image, link, YouTube, Vimeo video,...).
 # see more on: https://github.com/dejan/auto_html
 gem "auto_html"
@@ -31,6 +34,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+
+gem 'momentjs-rails', '~> 2.9.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
