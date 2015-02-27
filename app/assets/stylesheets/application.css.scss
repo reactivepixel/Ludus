@@ -39,4 +39,8 @@ h1, h2, h3{
 .msg_content~p img, .msg_content~p iframe {
 	max-width: 60% !important;
 }
+code{
+	background: rgba(117, 117, 117, 0.2);
+	color: black;
+}
 
