@@ -37,6 +37,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+  <%=f.label :color %><i> (You can find colors at <a href="http://www.materialui.co/colors" target="_blank">Material UI Color</a>)</i><br />
+  <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+  <%=f.label :Github_Username %><br />
+  <%= f.text_field :repo_name %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
