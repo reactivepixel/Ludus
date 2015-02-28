@@ -16,7 +16,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/Gemfile.lock
+Gemfile.lock
 
 /.DS_Store
-config/database.yml
+database.yml
