@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/reactivepixel/Ludus.svg?branch=master)](https://travis-ci.org/reactivepixel/Ludus)
+
 [![Code Climate](https://codeclimate.com/github/reactivepixel/Ludus/badges/gpa.svg)](https://codeclimate.com/github/reactivepixel/Ludus)
 
 # Ludus
