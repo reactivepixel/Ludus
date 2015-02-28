@@ -21,3 +21,17 @@ module Ludus
     # config.i18n.default_locale = :de
   end
 end
+
+require 'redcarpet'
+AutoHtml.add_filter(:redcarpet).with(:renderer => Redcarpet::Render::HTML, :markdown_options => {
+  hard_wrap: true,
+  autolink: true, 
+  quote: true, 
+  fenced_code_blocks: true, 
+  strikethrough: true, 
+  underline: true, 
+  highlight: true, 
+  quote: true
+  }) do |text, options|
+  Redcarpet::Markdown.new(options[:renderer], options[:markdown_options]).render(text)
+end

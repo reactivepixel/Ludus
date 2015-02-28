@@ -187,6 +187,7 @@ DEPENDENCIES
   momentjs-rails (~> 2.9.0)
   mysql2
   rails (= 4.1.6)
+  redcarpet
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
