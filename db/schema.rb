@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20150227205930) do
   add_index "msgs", ["channel_id"], name: "index_msgs_on_channel_id", using: :btree
   add_index "msgs", ["user_id"], name: "index_msgs_on_user_id", using: :btree
 
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -47,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150227205930) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "color"
+    t.string   "repo_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
